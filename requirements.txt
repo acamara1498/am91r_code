@@ -1,4 +1,3 @@
-json
 psycopg2
 tweepy
 tweepy.streaming

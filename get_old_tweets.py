@@ -1,4 +1,3 @@
-import json
 import keys
 import tweepy
 import singleton_db as sdb
