@@ -1,0 +1,10 @@
+CONSUMER_KEY = "ypY9L0VYFS1SPxCdYb2404Pqo"
+CONSUMER_SECRET = "iHaicWGmcifyf8CjnXFVpLkZG1ArTpnVoWqGyaAwqAB8HkWzZK"
+ACCESS_TOKEN = "879407891958059008-1lZ7IvvyeNhY5b6DA3vvZexWy9fqyUJ"
+ACCESS_SECRET = "i17R442o3OcD8NRxnOHMtwehq8Fzd08aa2HX94SP9w8Lc"
+
+user = "uedfgkbscmuagn"
+password = "4686df84d008a94cc895907718bfec99442b306af34b20d7c8c3ac7cb11bafac"
+host = "ec2-23-23-195-205.compute-1.amazonaws.com"
+port = "5432"
+database = "dfs699cidqg1jb"

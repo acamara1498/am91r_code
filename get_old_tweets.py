@@ -13,7 +13,7 @@ def get_past_tweets(stock_name):
 
     results = tweepy.Cursor(api.search,
                            q="$" + str(stock_name),
-                           since="2017-03-24",
+                           since="2017-03-26",
                            until="2019-03-24",
                            lang="en").items()
 
