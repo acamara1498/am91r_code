@@ -1,4 +1,5 @@
 import psycopg2
+import keys
 
 class Database:
     """docstring for Database."""
@@ -11,11 +12,11 @@ class Database:
 
         def connect(self):
             try:
-                self.connection = psycopg2.connect(user = "uedfgkbscmuagn",
-                                          password = "4686df84d008a94cc895907718bfec99442b306af34b20d7c8c3ac7cb11bafac",
-                                          host = "ec2-23-23-195-205.compute-1.amazonaws.com",
-                                          port = "5432",
-                                          database = "dfs699cidqg1jb")
+                self.connection = psycopg2.connect(user = keys.user,
+                                          password = keys.password,
+                                          host = keys.host,
+                                          port = keys.port,
+                                          database = keys.database)
                 self.cursor = self.connection.cursor()
             except (Exception, psycopg2.Error) as error :
                 print ("Error while connecting to PostgreSQL", error)
