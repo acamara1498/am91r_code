@@ -1,6 +1,11 @@
 import psycopg2
 import keys
 
+import logging
+
+logger = logging.getLogger(__name__)
+logging.basicConfig(level=logging.DEBUG)
+
 class Database:
     """docstring for Database."""
 
@@ -19,13 +24,13 @@ class Database:
                                           database = keys.database)
                 self.cursor = self.connection.cursor()
             except (Exception, psycopg2.Error) as error :
-                print ("Error while connecting to PostgreSQL", error)
+                logger.info("Error while connecting to PostgreSQL", error)
 
         def disconnect(self):
             if(self.connection):
                 self.cursor.close()
                 self.connection.close()
-                print("PostgreSQL connection is closed")
+                logger.info("PostgreSQL connection is closed")
 
         def createTable(self, table_query):
             try:
@@ -42,9 +47,9 @@ class Database:
 
                 self.cursor.execute(table_query)
                 self.connection.commit()
-                print("Table created successfully in PostgreSQL ")
+                logger.info("Table created successfully in PostgreSQL ")
             except (Exception, psycopg2.Error) as error :
-                print ("Error while connecting to PostgreSQL", error)
+                logger.info("Error while connecting to PostgreSQL", error)
 
         def insert(self, table_name, tweet):
             try:
@@ -53,10 +58,10 @@ class Database:
                 self.cursor.execute(postgres_insert_query, record_to_insert)
                 self.connection.commit()
                 count = self.cursor.rowcount
-                print (count, "Record inserted successfully into", table_name)
+                logger.info(count, "Record inserted successfully into", table_name)
             except (Exception, psycopg2.Error) as error :
                 if(self.connection):
-                    print("Failed to insert record into", table_name, error)
+                    logger.info("Failed to insert record into", table_name, error)
 
         def selectAll(self, table_name):
             self.cursor.execute("""SELECT * from """+ table_name + """;""")
