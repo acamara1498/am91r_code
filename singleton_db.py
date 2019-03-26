@@ -65,7 +65,7 @@ class Database:
 
         def selectAll(self, table_name):
             self.cursor.execute("""SELECT * from """+ table_name + """;""")
-            print (self.cursor.fetchall())
+            print(self.cursor.fetchall())
 
     instance = None
 
